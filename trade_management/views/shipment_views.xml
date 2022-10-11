@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Open Actions -->
+    <record id="ind_action_shipment_open_purchases" model="ir.actions.act_window">
+        <field name="name">Shipment Purchase Orders</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('shipment_id','=',active_id)]</field>
+    </record>
+    <record id="ind_action_open_single_shipment" model="ir.actions.act_window">
+        <field name="name">Shipment</field>
+        <field name="res_model">trade_management.shipment</field>
+        <field name="view_mode">tree,pivot,form</field>
+        <field name="domain">[('purchase_orders_ids','in','active_id')]</field>
+    </record> 
+        <record id="ind_action_shipment_open_containers" model="ir.actions.act_window">
+        <field name="name">Shipment Containers</field>
+        <field name="res_model">trade_management.container</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('shipment_id','=',active_id)]</field>
+    </record>
+    <record id="ind_action_open_single_shipment_container" model="ir.actions.act_window">
+        <field name="name">Container</field>
+        <field name="res_model">trade_management.shipment</field>
+        <field name="view_mode">tree,pivot,form</field>
+        <field name="domain">[('containers_ids','in','active_id')]</field>
+    </record>   
+    <!-- Shipments Form -->
+    <record model="ir.ui.view" id="shipment_view_form">
+        <field name="name">shipment.form</field>
+        <field name="model">trade_management.shipment</field>
+        <field name="arch" type="xml">
+            <form string="Shipment Form">
+                <header>
+                    <button name="make_created" states="shipped" string="Make Created" class="oe_highlight" type="object"/>
+                    <button name="make_shipped" states="created,arrived" string="Make Shipped" class="oe_highlight" type="object"/>
+                    <button name="make_arrived" states="shipped" string="Make Arrived" class="oe_highlight" type="object"/>
+                    <button name="make_done" states="arrived" string="Complete" class="oe_highlight" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="created,shipped,arrived,done" readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="%(ind_action_shipment_open_purchases)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-cubes"
+                        >
+                            <field
+                                name="purchase_orders_count"
+                                widget="statinfo"
+                                string="Purchase Orders"
+                                context="{'default_shipment_id': active_id}"
+                            />
+                        </button>
+                        <button
+                            name="%(ind_action_shipment_open_containers)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-cubes"
+                        >
+                            <field
+                                name="containers_count"
+                                widget="statinfo"
+                                string="Containers"
+                                context="{'default_shipment_id': active_id}"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Shipment Number" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" options="{'format': 0}"/>
+                        </h1>
+                    </div>
+                    <group name = "main">
+                        <group>
+                            <field name="transport_type"/>
+                            <field name="shipment_category_ids" widget="many2many_tags"/>
+                            <field name="shipment_date"/>
+                            <field name="shipment_year" options="{'format': 0}"/>
+                            <field name="total_weight"/>
+                        </group>
+                        <group>
+                            <field name="shipment_origin_id"/>
+                            <field name="shipment_port_destination_id"/>
+                            <field name="shipment_date_departure"/>
+                            <field name="shipment_date_arrival"/>
+                        </group>
+                        <group>
+                            <field name="bill_id"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Shipments List -->
+    <record model="ir.ui.view" id="ind_shipment_view_list">
+        <field name="name">shipment.list</field>
+        <field name="model">trade_management.shipment</field>
+        <field name="arch" type="xml">
+            <tree string= "Shipments">
+                <field name="name"/>
+                <field name="transport_type"/>
+                <field name="shipment_category_ids" widget="many2many_tags"/>
+                <field name="purchase_orders_count"/>
+                <field name="purchase_orders_confirmed"/>
+                <field name="shipment_date"/>
+                <field name="shipment_year"/>
+                <field name="total_weight"/>
+                <field name="shipment_origin_id"/>
+                <field name="shipment_port_destination_id"/>
+                <field name="shipment_date_departure"/>
+                <field name="shipment_date_arrival"/>
+                <field name="bill_id"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"
+                       decoration-warning="state == 'arrived'"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Shipment Search -->
+    <record model="ir.ui.view" id="ind_shipment_view_search">
+        <field name="name">shipment.search</field>
+        <field name="model">trade_management.shipment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="transport_type"/>
+                <field name="shipment_category_ids"/>
+                <field name="shipment_year"/>
+                <field name="shipment_origin_id"/>
+                <field name="shipment_port_destination_id"/>
+                <field name="shipment_date_departure"/>
+                <field name="shipment_date_arrival"/>
+                <filter string="Completed" name="completed" domain="[('state','=','done')]" help="Completed Shipments"/>
+                <filter string="Arrived" name="arrived" domain="[('state','=','arrived')]" help="Arrived Shipments"/>
+                <filter string="Shipped" name="shipped" domain="[('state','=','shipped')]" help="Shipped Shipments"/>
+                <filter string="Created" name="created" domain="[('state','=','created')]" help="Created Shipments"/>
+                <separator/>
+                <filter string="Air" name="air" domain="[('transport_type','=','air')]" help="Air Shipments"/>
+                <filter string="Maritime" name="maritime" domain="[('transport_type','=','maritime')]" help="Maritime Shipments"/>
+                <filter string="Land" name="land" domain="[('transport_type','=','land')]" help="Terrestrial Shipments"/>
+                <group expand="0" string="Group By">
+                    <filter string="By Transport Type" name="transport_type" context="{'group_by': 'transport_type'}"/>
+                    <filter string="By State" name="status" context="{'group_by': 'state'}"/>
+                    <separator/>
+                    <filter string="By Origin" name="origin" context="{'group_by': 'shipment_origin_id'}"/>
+                    <filter string="By Destination" name="destination" context="{'group_by': 'shipment_port_destination_id'}"/>
+                    <separator/>
+                    <filter string="By Date Shipped" name="dateshipped" context="{'group_by': 'shipment_date_departure'}"/>
+                    <filter string="By Date Arrived" name="datearrived" context="{'group_by': 'shipment_date_arrival'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+    <!-- Shipment Search -->
+    <record id="view_shipment_pivot" model="ir.ui.view">
+        <field name="name">shipment.pivot</field>
+        <field name="model">trade_management.shipment</field>
+        <field name="arch" type="xml">
+            <pivot string="Shipments" sample="1">
+                <field name="name" type="row"/>
+                <field name="shipment_date_departure" type="col"/>
+                <field name="shipment_date_arrival" type="col"/>
+                <field name="purchase_orders_confirmed" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

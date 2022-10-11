@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Origins -->
+    <record id="origin_01" model="trade_management.shipment.origin">
+        <field name="name">Aiglsbach</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_02" model="trade_management.shipment.origin">
+        <field name="name">Altenweddingen</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_03" model="trade_management.shipment.origin">
+        <field name="name">Bad Schwalbach</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_04" model="trade_management.shipment.origin">
+        <field name="name">Bawinkel</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_05" model="trade_management.shipment.origin">
+        <field name="name">Beelen</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_06" model="trade_management.shipment.origin">
+        <field name="name">Bessenbach</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_07" model="trade_management.shipment.origin">
+        <field name="name">Bramsche</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_08" model="trade_management.shipment.origin">
+        <field name="name">Braunschweig</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_09" model="trade_management.shipment.origin">
+        <field name="name">Canada</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_10" model="trade_management.shipment.origin">
+        <field name="name">Claas Langenau</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_11" model="trade_management.shipment.origin">
+        <field name="name">Cloppenburg</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_12" model="trade_management.shipment.origin">
+        <field name="name">Demmin</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_13" model="trade_management.shipment.origin">
+        <field name="name">Dessau</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_14" model="trade_management.shipment.origin">
+        <field name="name">Dorfen</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_15" model="trade_management.shipment.origin">
+        <field name="name">Egem (Belgica)</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_16" model="trade_management.shipment.origin">
+        <field name="name">Emsbüren</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_17" model="trade_management.shipment.origin">
+        <field name="name">Gescher</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_18" model="trade_management.shipment.origin">
+        <field name="name">Gross Bölkow</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_19" model="trade_management.shipment.origin">
+        <field name="name">Gyhum</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_20" model="trade_management.shipment.origin">
+        <field name="name">Hedendorf</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_21" model="trade_management.shipment.origin">
+        <field name="name">Heslingen</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_22" model="trade_management.shipment.origin">
+        <field name="name">Holanda</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_23" model="trade_management.shipment.origin">
+        <field name="name">India</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_24" model="trade_management.shipment.origin">
+        <field name="name">Korea</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_25" model="trade_management.shipment.origin">
+        <field name="name">Landsberg</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_26" model="trade_management.shipment.origin">
+        <field name="name">Meppen</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_27" model="trade_management.shipment.origin">
+        <field name="name">Molbergen</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_28" model="trade_management.shipment.origin">
+        <field name="name">Mühlengeez</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_29" model="trade_management.shipment.origin">
+        <field name="name">Nürnberg</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_30" model="trade_management.shipment.origin">
+        <field name="name">Obersontheim</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_31" model="trade_management.shipment.origin">
+        <field name="name">Oldenburg</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_32" model="trade_management.shipment.origin">
+        <field name="name">Pragsdorf</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_33" model="trade_management.shipment.origin">
+        <field name="name">Römstedt</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_34" model="trade_management.shipment.origin">
+        <field name="name">Rosbach</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_35" model="trade_management.shipment.origin">
+        <field name="name">Schwend/Birland</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_36" model="trade_management.shipment.origin">
+        <field name="name">Sittensen</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_37" model="trade_management.shipment.origin">
+        <field name="name">Spelle</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_38" model="trade_management.shipment.origin">
+        <field name="name">Steinau</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_39" model="trade_management.shipment.origin">
+        <field name="name">Steinhagen</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_40" model="trade_management.shipment.origin">
+        <field name="name">Suffolk</field>
+        <field name="active">True</field>
+    </record>
+    <record id="origin_41" model="trade_management.shipment.origin">
+        <field name="name">Wippingen</field>
+        <field name="active">True</field>
+    </record>
+    
+    <!-- Destinations -->
+    <record id="destination_01" model="trade_management.port.destination">
+        <field name="name">San Antonio</field>
+        <field name="active">True</field>
+    </record>
+    <record id="destination_02" model="trade_management.port.destination">
+        <field name="name">San Vicente</field>
+        <field name="active">True</field>
+    </record>
+    <record id="destination_03" model="trade_management.port.destination">
+        <field name="name">Valparaíso</field>
+        <field name="active">True</field>
+    </record>
+    <record id="destination_04" model="trade_management.port.destination">
+        <field name="name">Aeropuerto Santiago</field>
+        <field name="active">True</field>
+    </record>
+    <record id="destination_05" model="trade_management.port.destination">
+        <field name="name">Aeropuerto Concepción</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

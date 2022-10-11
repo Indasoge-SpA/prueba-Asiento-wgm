@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Open Actions -->
+    <record id="ind_action_open_purchases" model="ir.actions.act_window">
+        <field name="name">Container Purchase Orders</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('container_id','=',active_id)]
+        </field>
+    </record>
+    <record id="ind_action_open_single_container" model="ir.actions.act_window">
+        <field name="name">Container</field>
+        <field name="res_model">trade_management.container</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('purchase_orders_ids','in','active_id')]</field>
+    </record>
+    <!-- Container Form -->
+    <record model="ir.ui.view" id="ind_container_view_form">
+        <field name="name">container.form</field>
+        <field name="model">trade_management.container</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="%(ind_action_open_purchases)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-cubes"
+                        >
+                            <field
+                                name="purchase_orders_count"
+                                widget="statinfo"
+                                string="Purchase Orders"
+                                context="{'default_container_id': active_id}"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Container Name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group name="main">
+                        <group>
+                            <field name="shipment_id" widget="selection"/>
+                            <field name="company_ownership"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+        
+        <!-- Containers  List -->
+    <record model="ir.ui.view" id="ind_containers_view_list">
+        <field name="name">containers.list</field>
+        <field name="model">trade_management.container</field>
+        <field name="arch" type="xml">
+            <tree string="Shipments">
+                <field name="name"/>
+                <field name="shipment_id"/>
+                <field name="company_ownership"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Naves Search -->
+    <record model="ir.ui.view" id="ind_containers_view_search">
+        <field name="name">container.search</field>
+        <field name="model">trade_management.container</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="company_ownership"/>
+                <field name="shipment_id"/>
+                <field name="active"/>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Email template -->
+        <record id="credit_limit_template_mail" model="mail.template">
+            <field name="name">Send Mail When Credit Limit Exceed</field>
+            <field name="email_from">${(object.user_id.email and '%s &lt;%s&gt;' % (object.user_id.name, object.user_id.email) or '')|safe}</field>
+            <field name="subject">${object.name}-Require Your Credit Limit Approval</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+<p>Dear User
+,</p>
+<p>
+<p>A Sale Order <b>${object.name}</b> for customer <b>${object.partner_id.name}</b> require your Credit Limit Approval.</p>
+<p>
+You can access sale order from below url<br/>
+<a href=${ctx.get('url')} target=blank>${ctx.get('url')}</a>
+</p>
+
+<p>
+<b>Regards,<br/><i>${object.user_id.name}</i></b>
+</p>
+]]></field>
+        </record>
+
+        <record id="mail_template_data_notification_email_credit_limit" model="mail.template">
+            <field name="name">Credit Limit Exceed Notification</field>
+            <field name="subject">${object.subject}</field>
+            <field name="model_id" ref="mail.model_mail_message"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[<html>
+                <head></head>
+                <body style="margin: 0; padding: 0;">
+                    <hr/>
+                    <tbody>
+                      <td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
+                        ${object.body | safe}
+                      </td>
+                    </tbody>
+                </body>
+               </html>
+            ]]></field>
+        </record>
+    </data>
+</odoo>

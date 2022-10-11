@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="o2b_worksheet_page"  inherit_id="industry_fsm_report.worksheet_custom_page">
+            <xpath expr="//div[@name='worksheet_map']/t[2]" position="replace">
+            </xpath>
+            <xpath expr="//div[hasclass('justify-content-between')]" position= "inside">
+                <div class="d-flex flex-wrap pt-3 flex-column align-items-start" name="worksheet_map" t-if="doc.worksheet_template_id.report_view_id and worksheet_map.get(doc.id)" style="page-break-inside: avoid">
+                    <t t-set="worksheet" t-value="worksheet_map.get(doc.id)"/>
+                    <t t-call="#{doc.worksheet_template_id.report_view_id.id}"/>
+                    
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

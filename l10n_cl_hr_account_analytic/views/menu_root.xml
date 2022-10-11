@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<menuitem id="cl_hr_account_analytic_def_account"
+		action="analytic.action_account_analytic_account_form"
+		parent="l10n_cl_hr.menu_cl_hr_payroll_master_data" sequence="6"
+		groups="analytic.group_analytic_accounting" />
+
+	<menuitem id="cl_hr_account_analytic_group_menu"
+		action="analytic.account_analytic_group_action"
+		parent="l10n_cl_hr.menu_cl_hr_payroll_master_data" sequence="7"
+		groups="analytic.group_analytic_accounting" />
+</odoo>

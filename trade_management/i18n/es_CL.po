@@ -1,0 +1,773 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* trade_management
+#
+# Translators:
+# Juan Pablo Levy <juanpablo.levy@indasoge.com>, 2022
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-19 15:12+0000\n"
+"PO-Revision-Date: 2022-04-19 15:12+0000\n"
+"Last-Translator: Juan Pablo Levy <juanpablo.levy@indasoge.com>, 2022\n"
+"Language-Team: https://www.indasoge.com\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es_CL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid ""
+"A Shipment can't change to state %s if there is not at least a confirmed "
+"Purchase Order"
+msgstr "Un Embarque no puede cambiar al estado %s si no hay al menos una orden de compra confirmada"
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid ""
+"A Shipment can't change to state %s without a departure date, please enter "
+"the Departure Date"
+msgstr "Un Embarque no puede cambiar al estado %s sin una fecha de embaque, favor ingresar una"
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid ""
+"A Shipment can't change to state %s without a vendors bill, please enter the"
+" Bill Number"
+msgstr "Un Embarque no puede cambiar al estado %s sin un Documento de Importación, favor ingrese uno"
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid ""
+"A Shipment can't change to state %s without an arrival date, please enter "
+"the Arrival Date"
+msgstr "Un Embarque no puede cambiar al estado %s sin una fecha de arribo, favor ingrese una"
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid ""
+"A Shipment can't change to state %s without an destination port, please "
+"enter the Destination Port"
+msgstr "Un Embarque no puede cambiar al estado %s sin un puerto de destino, favor ingrese uno"
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid ""
+"A Shipment can't change to state %s without an origin port, please enter the"
+" Origin Port"
+msgstr "Un Embarque no puede cambiar al estado %s sin un origen, favor ingrese uno"
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid ""
+"A Shipment can't change to state %s without the shipment weight, please "
+"enter the Total Weight"
+msgstr "Un Embarque no puede cambiar al estado %s sin el peso total del embarque, favor ingréselo"
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid "A Shipment state change from %s to % is not allowed"
+msgstr "Un cambio del estado %s al estado % no está permitido"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_needaction
+msgid "Action Needed"
+msgstr "Acción requerida"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__active
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__active
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields.selection,name:trade_management.selection__purchase_order__transport_type__air
+#: model:ir.model.fields.selection,name:trade_management.selection__trade_management_shipment__transport_type__air
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+#: model_terms:ir.ui.view,arch_db:trade_management.view_purchase_order_view_filter_inherit
+msgid "Air"
+msgstr "Aéreo"
+
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Air Shipments"
+msgstr "Embarques aéreos"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__shipment_date_arrival
+msgid "Arrival Date"
+msgstr "Fecha de Arribo"
+
+#. module: trade_management
+#: model:ir.model.fields.selection,name:trade_management.selection__trade_management_shipment__state__arrived
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Arrived"
+msgstr "Arribado"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Arrived Shipments"
+msgstr "Embarques Arribados"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__bill_id
+msgid "Bill number"
+msgstr "BL/AirwayBill"
+
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "By Date Arrived"
+msgstr "Por fecha de llegada"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "By Date Shipped"
+msgstr "Por fecha de salida"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "By Destination"
+msgstr "Por destino"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "By Origin"
+msgstr "Por origen"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "By State"
+msgstr "Por estado"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "By Transport Type"
+msgstr "Por tipo de transporte"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__shipment_category_ids
+msgid "Category"
+msgstr "Categoría"
+
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Complete"
+msgstr "Completado"
+
+#. module: trade_management
+#: model:ir.model.fields.selection,name:trade_management.selection__trade_management_shipment__state__done
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Completed"
+msgstr "Completado"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Completed Shipments"
+msgstr "Embarques completados"
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_action_open_single_container
+#: model:ir.actions.act_window,name:trade_management.ind_action_open_single_shipment_container
+#: model:ir.model.fields,field_description:trade_management.field_purchase_order__container_id
+#: model_terms:ir.ui.view,arch_db:trade_management.view_purchase_order_view_filter_inherit
+msgid "Container"
+msgstr "Contenedor"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__description
+msgid "Container Details"
+msgstr "Detalles del Contenedor"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__name
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_container_view_form
+msgid "Container Name"
+msgstr "ID Contenedor"
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_action_open_purchases
+msgid "Container Purchase Orders"
+msgstr "Órdenes de Compra"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__company_ownership
+msgid "Container belongs to company"
+msgstr "Pertenece a la compañía"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__containers_ids
+#: model:ir.ui.menu,name:trade_management.ind_containers_ports_menu
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Containers"
+msgstr "Contenedores"
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_container_action
+msgid "Containers Management"
+msgstr "Gestión de Contenedores"
+
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__containers_count
+msgid "Containers Quantity"
+msgstr "# de contenedores"
+
+#. module: trade_management
+#: model:ir.model,name:trade_management.model_trade_management_container
+msgid "Containers for Shipments"
+msgstr "Contenedores para Embarques"
+
+
+#. module: trade_management
+#: model:ir.model.fields.selection,name:trade_management.selection__trade_management_shipment__state__created
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Created"
+msgstr "Creado"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Created Shipments"
+msgstr "Embarques Creados"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__create_uid
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__create_uid
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__create_uid
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__create_date
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__create_date
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__create_date
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__shipment_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__shipment_date_departure
+msgid "Departure Date"
+msgstr "Fecha de Salida"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_container_view_form
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_dest_port_view_form
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_origin_view_form
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__name
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__shipment_port_destination_id
+msgid "Destination Port"
+msgstr "Puerto de Destino"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_dest_port_view_form
+msgid "Destination Port Form"
+msgstr "Formulario de Puerto de Destino"
+
+#. module: trade_management
+#: model:ir.ui.menu,name:trade_management.ind_destinations_ports_menu
+msgid "Destinations"
+msgstr "Destinos"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_dest_port_view_list
+msgid "Destinations Ports"
+msgstr "Puertos de destino"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__display_name
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__display_name
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__display_name
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_purchase_order__id
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__id
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__id
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__id
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__name
+msgid "Identifier"
+msgstr "Identificador"
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__message_needaction
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__message_has_error
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields.selection,name:trade_management.selection__purchase_order__transport_type__land
+#: model:ir.model.fields.selection,name:trade_management.selection__trade_management_shipment__transport_type__land
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+#: model_terms:ir.ui.view,arch_db:trade_management.view_purchase_order_view_filter_inherit
+msgid "Land"
+msgstr "Terrestre"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container____last_update
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination____last_update
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment____last_update
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__write_uid
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__write_uid
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__write_uid
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__write_date
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__write_date
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__write_date
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Make Arrived"
+msgstr "Cambiar a Arribado"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Make Created"
+msgstr "Cambiar a Creado"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Make Shipped"
+msgstr "Cambiar a Embarcado"
+
+#. module: trade_management
+#: model:ir.model.fields.selection,name:trade_management.selection__purchase_order__transport_type__maritime
+#: model:ir.model.fields.selection,name:trade_management.selection__trade_management_shipment__transport_type__maritime
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+#: model_terms:ir.ui.view,arch_db:trade_management.view_purchase_order_view_filter_inherit
+msgid "Maritime"
+msgstr "Marítimo"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Maritime Shipments"
+msgstr "Embarques Marítimos"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_purchase_order__notes
+#: model_terms:ir.ui.view,arch_db:trade_management.purchase_order_form_view_inherit
+msgid "Notes"
+msgstr "Notas"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__shipment_origin_id
+msgid "Origin"
+msgstr "Origen"
+
+#. module: trade_management
+#: model:ir.ui.menu,name:trade_management.ind_shipments_origins_menu
+msgid "Origins"
+msgstr "Orígenes"
+
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__purchase_orders_confirmed
+msgid "PO Confirmed"
+msgstr "OC Confirmadas"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__purchase_orders_count
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__purchase_orders_count
+msgid "PO Quantity"
+msgstr "# de OC"
+
+#. module: trade_management
+#: model:ir.model,name:trade_management.model_purchase_order
+msgid "Purchase Order"
+msgstr "Órden de Compra"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_container_view_form
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Purchase Orders"
+msgstr "Órdenes de Compra"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_action_open_single_shipment
+#: model:ir.model.fields,field_description:trade_management.field_purchase_order__shipment_id
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__shipment_id
+#: model_terms:ir.ui.view,arch_db:trade_management.view_purchase_order_view_filter_inherit
+msgid "Shipment"
+msgstr "Embarque"
+
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_action_shipment_open_containers
+msgid "Shipment Containers"
+msgstr "Contenedores del Embarque"
+
+#. module: trade_management
+#: model:ir.model,name:trade_management.model_trade_management_port_destination
+msgid "Shipment Destination Port"
+msgstr "Puerto de destino del embarque"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__description
+msgid "Shipment Destination Port Description"
+msgstr "Descripción puerto de destino"
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_destination_port_action
+msgid "Shipment Destination Ports Management"
+msgstr "Gestión de Puertos de Destino"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Shipment Form"
+msgstr "Formulario de Embarque"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__description
+msgid "Shipment Information and Tracking"
+msgstr "Información y Seguimiento de Embarques"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.shipment_view_form
+msgid "Shipment Number"
+msgstr "Número de Embarque"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__name
+msgid "Shipment Origin"
+msgstr "Orígen del embarque"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__description
+msgid "Shipment Origin Description"
+msgstr "Descripción orígen"
+
+#. module: trade_management
+#: model:ir.model,name:trade_management.model_trade_management_shipment_origin
+msgid "Shipment Origins"
+msgstr "Origen embarques"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_origin_view_list
+msgid "Shipment Origins List"
+msgstr "Lista de orígenes"
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_action_shipment_open_purchases
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_container__purchase_orders_ids
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__purchase_orders_ids
+msgid "Shipment Purchase Orders"
+msgstr "Órdenes de Compra"
+
+
+#. module: trade_management
+#: code:addons/trade_management/models/.ipynb_checkpoints/shipment-checkpoint.py:0
+#: code:addons/trade_management/models/shipment.py:0
+#, python-format
+msgid "Shipment date arrival %s can't precede departure date %s"
+msgstr "La fecha de llegada %s no puede ser preceder a la fecha de salida %s"
+
+#. module: trade_management
+#: model:ir.model,name:trade_management.model_trade_management_shipment
+msgid "Shipment information and tracking"
+msgstr "Información y seguimiento de embarques"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_port_destination__shipment_ids
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment_origin__shipment_ids
+#: model:ir.ui.menu,name:trade_management.ind_shipments_sub_menu
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_containers_view_list
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_list
+#: model_terms:ir.ui.view,arch_db:trade_management.view_shipment_pivot
+msgid "Shipments"
+msgstr "Embarques"
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_shipment_action
+#: model:ir.ui.menu,name:trade_management.ind_shipments_base_menu
+msgid "Shipments Management"
+msgstr "Gestión de Embarques"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_origin_view_form
+msgid "Shipments Origin Form"
+msgstr "Formulario de orígen de embarque"
+
+#. module: trade_management
+#: model:ir.actions.act_window,name:trade_management.ind_shipment_origin_action
+msgid "Shipments Origins Management"
+msgstr "Gestión de Orígenes de Embarque"
+
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Shipped"
+msgstr "Embarcado"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Shipped Shipments"
+msgstr "Embarques embarcados"
+
+#. module: trade_management
+#: model:ir.model.fields.selection,name:trade_management.selection__trade_management_shipment__state__shipped
+msgid "Shipped in Origin"
+msgstr "Embarcado en Origen"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__state
+msgid "State"
+msgstr "Estado"
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.ind_shipment_view_search
+msgid "Terrestrial Shipments"
+msgstr "Embarques Terrestres"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__total_weight
+msgid "Total Weight"
+msgstr "Peso total del embarque"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_purchase_order__transport_type
+msgid "Transport Type"
+msgstr "Tipo de transporte"
+
+#. module: trade_management
+#: model_terms:ir.ui.view,arch_db:trade_management.view_purchase_order_view_filter_inherit
+msgid "Transport type"
+msgstr "Tipo de transporte"
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__transport_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,help:trade_management.field_trade_management_shipment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: trade_management
+#: model:ir.model.fields,field_description:trade_management.field_trade_management_shipment__shipment_year
+msgid "Year"
+msgstr "Año"

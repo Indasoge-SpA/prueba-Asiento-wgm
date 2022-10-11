@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_horoscope_report,access_horoscope_report,model_horoscope_report,base.group_user,1,0,0,0
+access_horoscope_report_vendors,access_horoscope_report_vendors,model_horoscope_report_vendors,base.group_user,1,0,0,0

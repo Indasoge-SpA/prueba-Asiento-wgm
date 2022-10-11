@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Payslip Batch view -->
+    <record id="hr_payslip_run_form_avp" model="ir.ui.view">
+        <field name="name">hr.payslip.run.form.inherit</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="arch" type="xml">
+            <button name="%(hr_payroll.action_hr_payslip_by_employees)d" position="after">
+                <button name="print_payroll_xlsx" string="Print Excel" type="object"
+                    class="oe_highlight"/>
+            </button>
+        </field>
+    </record>
+
+    <record id="hr_payslip_rules" model="ir.ui.view">
+        <field name="name">hr.payslip.rules</field>
+        <field name="model">hr.salary.rule</field>
+        <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='appears_on_payslip']" position="after">
+                  <field name="libro"/>  
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

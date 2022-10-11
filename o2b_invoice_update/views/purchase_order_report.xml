@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <odoo>
+<data> 
+   <template id="my_purchase_order_report"  inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//th[@name='th_taxes']" position="replace">
+        </xpath>
+        <xpath expr="//td[@name='td_taxes']" position="replace">
+        </xpath>
+        <xpath expr="//th[@name='th_date_req']" position="replace">
+        </xpath>
+        <xpath expr="//td[2]" position="replace">
+        </xpath>
+        <xpath expr="//t[@t-set='o']" position="after">
+            <t t-set="po_report_data" t-value="o.with_context(lang=o.partner_id.lang)"/>
+        </xpath>
+   </template>
+
+   <template id="po_address" inherit_id="purchase_stock.report_purchaseorder_document">
+        <xpath expr="//t[@t-set='address']" position ="replace">
+            <t t-set="address">
+                <strong>Shipping address:</strong>
+                <div t-if="o.picking_type_id and o.picking_type_id.warehouse_id and o.picking_type_id.warehouse_id.partner_id and o.picking_type_id.warehouse_id.partner_id.child_ids">
+                    <div t-esc="o.picking_type_id.warehouse_id.partner_id.child_ids[0]" t-options='{"widget": "contact", "fields": ["address", "phone"], "no_marker": True, "phone_icons": True}'/>
+                </div>
+                <div t-elif="o.picking_type_id and o.picking_type_id.warehouse_id">
+                    <!-- <span t-field="o.picking_type_id.warehouse_id.partner_id.id"/> -->
+                    <div t-field="o.picking_type_id.warehouse_id.partner_id" t-options='{"widget": "contact", "fields": ["address", "phone"], "no_marker": True, "phone_icons": True}'/>
+                </div>
+                
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-else='']" position="replace">
+            <t t-set="information_block">
+                <div t-field="o.partner_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/></p>
+            </t>
+        </xpath>
+   </template>
+
+    <template id="po_header" inherit_id="web.external_layout_background">
+        <xpath expr="//div[hasclass('company_address')]" position="replace">
+            <!-- purchase order only-->
+            <t t-if="po_report_data">
+                <div class="float-left company_address">
+                    <div>
+                        <strong t-field="company.partner_id.name"/>
+                    </div>
+                    <t t-if="company.partner_id and company.partner_id.child_ids">
+                        <span t-esc="company.partner_id.child_ids[0]"
+                            t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="company.partner_id"
+                            t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                    </t>
+                </div>
+            </t>
+            <t t-elif="rfq_report_data">
+                <div class="float-left company_address">
+                    <div>
+                        <strong t-field="company.partner_id.name"/>
+                    </div>
+                    <t t-if="company.partner_id and company.partner_id.child_ids">
+                        <span t-esc="company.partner_id.child_ids[0]"
+                            t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="company.partner_id"
+                            t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                    </t>
+                </div>
+            </t>
+            <t t-else="">
+                <div class="float-left company_address">
+                    <div>
+                        <strong t-field="company.partner_id.name"/>
+                    </div>
+                    <span t-field="company.partner_id"
+                        t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+   <template id="rfq_header" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//t[@t-set='o']" position="after">
+            <t t-set="rfq_report_data" t-value="o.with_context(lang=o.partner_id.lang)"/>
+        </xpath>
+   </template>
+
+   <template id="rfq_address" inherit_id="purchase_stock.report_purchasequotation_document">
+        <xpath expr="//t[@t-set='address']" position ="replace">
+            <t t-set="address">
+                <strong>Shipping address:</strong>
+                <div t-if="o.picking_type_id and o.picking_type_id.warehouse_id and o.picking_type_id.warehouse_id.partner_id and o.picking_type_id.warehouse_id.partner_id.child_ids">
+                    <div t-esc="o.picking_type_id.warehouse_id.partner_id.child_ids[0]" t-options='{"widget": "contact", "fields": ["address", "phone"], "no_marker": True, "phone_icons": True}'/>
+                </div>
+                <div t-elif="o.picking_type_id and o.picking_type_id.warehouse_id">
+                    <div t-field="o.picking_type_id.warehouse_id.partner_id" t-options='{"widget": "contact", "fields": ["address", "phone"], "no_marker": True, "phone_icons": True}'/>
+                </div>                
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-else='']" position="replace">
+            <t t-set="information_block">
+                <div t-field="o.partner_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/></p>
+            </t>
+        </xpath>
+   </template>
+
+ </data>
+ </odoo>        

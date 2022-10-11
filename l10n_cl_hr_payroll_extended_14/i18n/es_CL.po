@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cl_hr_payroll_extended
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e-20180706\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-13 11:39+0000\n"
+"PO-Revision-Date: 2019-04-13 07:41-0400\n"
+"Last-Translator: Nelson Ramírez <info@konos.cl>\n"
+"Language-Team: info@konos.cl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es_CL\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#. module: l10n_cl_hr_payroll_extended
+#: code:addons/l10n_cl_hr_payroll_extended/models/hr_payslip.py:182
+#: model:ir.ui.view,arch_db:l10n_cl_hr_payroll_extended.view_attachment_report_form_avp
+#, python-format
+msgid "Attachment"
+msgstr "Adjunto"
+
+#. module: l10n_cl_hr_payroll_extended
+#: model:ir.model,name:l10n_cl_hr_payroll_extended.model_attachment_report
+msgid "Attachment Reports"
+msgstr "Informes de Adjuntos"
+
+#. module: l10n_cl_hr_payroll_extended
+#: model:ir.ui.view,arch_db:l10n_cl_hr_payroll_extended.view_attachment_report_form_avp
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cl_hr_payroll_extended
+#: code:addons/l10n_cl_hr_payroll_extended/models/hr_payslip.py:52
+#, python-format
+msgid "Payslip Batch"
+msgstr "Libro de Remuneraciones"
+
+#. module: l10n_cl_hr_payroll_extended
+#: code:addons/l10n_cl_hr_payroll_extended/models/hr_payslip.py:176
+#, python-format
+msgid "Payslip Batch.xlsx"
+msgstr "LibroRemuneraciones.xlsx"
+
+#. module: l10n_cl_hr_payroll_extended
+#: model:ir.model,name:l10n_cl_hr_payroll_extended.model_hr_payslip_run
+msgid "Payslip Run"
+msgstr "Procesar Nómina"
+
+#. module: l10n_cl_hr_payroll_extended
+#: code:addons/l10n_cl_hr_payroll_extended/models/hr_payslip.py:20
+#, python-format
+msgid "Payslip batch have no payslips."
+msgstr "Procesamiento no contiene liquidaciones. "
+
+#. module: l10n_cl_hr_payroll_extended
+#: code:addons/l10n_cl_hr_payroll_extended/models/hr_payslip.py:37
+#, python-format
+msgid ""
+"Please check payslip have no salary rules.\n"
+"Payslips may be not a computed."
+msgstr ""
+"Por favor revise, liquidación no contiene reglas salariales.\n"
+"Liquidaciones no fueron procesadas."
+
+#. module: l10n_cl_hr_payroll_extended
+#: model:ir.ui.view,arch_db:l10n_cl_hr_payroll_extended.hr_payslip_run_form_avp
+msgid "Print Excel"
+msgstr "Imprimir Excel"

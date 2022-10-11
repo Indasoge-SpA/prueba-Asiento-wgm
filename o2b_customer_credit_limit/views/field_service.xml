@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>    
+    <record id="view_task_form2_inherit_form" model="ir.ui.view">
+        <field name="name">project.task.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="credit_limit_on_hold" invisible="1"/>
+                <field name="credit_limit_approved" invisible="1"/>
+                <field name="company_credit_limit_on_hold" invisible="1"/>
+                <field name="pending_for_approval" invisible="1"/>
+                <field name="display_mark_as_done_secondary" invisible="1"/>
+            </field>
+            <field name="partner_id" position="attributes">
+                <attribute name="attrs">{"readonly": [('pending_for_approval', '=', True)]}</attribute>
+                <attribute name="required">1</attribute>
+                <attribute name="options">{'always_reload': True}</attribute>
+                <attribute name="context">{'res_partner_search_mode': 'customer'}</attribute>
+            </field>
+            <xpath expr="//widget[@name='web_ribbon']" position="after">
+                <field name="is_closed" invisible="1"/>
+                <widget name="web_ribbon" title="Limit Exceeded" bg_color="bg-danger" attrs="{'invisible': ['|','|','|','|',('is_closed', '=', True),('partner_id', '=', False),('company_credit_limit_on_hold', '=', False),('credit_limit_on_hold', '=', False),('credit_limit_approved', '=', True)]}"/>
+                <widget name="web_ribbon" title="Waiting Approval" bg_color="bg-danger" attrs="{'invisible': [('pending_for_approval', '=', False)]}"/>
+                <widget name="web_ribbon" title="Limit Approved" bg_color="bg-success" attrs="{'invisible': ['|',('pending_for_approval', '=', True),('credit_limit_approved', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="attributes">
+                <attribute name="attrs">{'invisible': [('company_credit_limit_on_hold', '=', True),('credit_limit_on_hold', '=', True),('credit_limit_approved', '=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_submit_for_approval" string="Sumbit For Credit Limit Approval" class="btn-primary" type="object" attrs="{'invisible': ['|','|','|','|',('company_credit_limit_on_hold', '!=', True),('credit_limit_on_hold', '!=', True),('credit_limit_approved', '!=', False),('pending_for_approval', '=', True),('is_closed','=',True)]}"/>
+                <button name="action_credit_limit_approve" string="Approve" class="btn-primary" type="object" groups="o2b_customer_credit_limit.partner_credit_limit_set" attrs="{'invisible': ['|',('credit_limit_approved', '=', True),('pending_for_approval', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_task_view_form_inh_hide_data" model="ir.ui.view">
+        <field name="name">view.task.form2.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="timesheet_grid.project_task_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[hasclass('btn-primary')]" position="replace">
+                <button class="btn-primary" name="action_timer_start" type="object" string="Start"
+                attrs="{'invisible': ['|', '|',('display_timer_start_primary', '=', False), ('encode_uom_in_days', '=', True),'&amp;',('company_credit_limit_on_hold', '=', True),'&amp;',('credit_limit_on_hold', '=', True),('credit_limit_approved', '=', False)]}" groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_task_form2_inherited_new_inh" model="ir.ui.view">
+        <field name="name">project.task.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@id='timesheets_tab']" position="attributes">
+                <attribute name="attrs">{'invisible': [('company_credit_limit_on_hold', '=', True),('credit_limit_on_hold', '=', True),('credit_limit_approved', '=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_task_form2_inherit_inh_hide_data" model="ir.ui.view">
+        <field name="name">view.task.form2.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="industry_fsm.view_task_form2_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_fsm_validate'][2]" position="replace">
+                
+                <button class="btn-secondary" name="action_fsm_validate" type="object" string="Mark as done" attrs="{'invisible': ['|',('display_mark_as_done_secondary', '=', False),'&amp;',('company_credit_limit_on_hold', '=', True),'&amp;',('credit_limit_on_hold', '=', True),('credit_limit_approved', '=', False)]}"/>
+                
+            </xpath>
+            <xpath expr="//button[@name='action_fsm_create_quotation']" position="replace">
+                <button class="btn-secondary" name="action_fsm_create_quotation" type="object" string="New Quotation" attrs="{'invisible': ['|',('allow_quotations', '=', False),'&amp;',('company_credit_limit_on_hold', '=', True),'&amp;',('credit_limit_on_hold', '=', True),('credit_limit_approved', '=', False)]}" groups="sales_team.group_sale_salesman,industry_fsm_sale.group_fsm_quotation_from_task"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

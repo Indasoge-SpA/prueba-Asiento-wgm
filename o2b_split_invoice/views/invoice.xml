@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_order_form_inh11" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <field name="invoice_date" position="after">
+                    <field name="mv_bnk_amt" attrs="{'invisible': [('third_party', '=', False)], 'readonly': [('payment_state','not in',['not_paid', 'partial'])]}"/>
+                    <field name="third_party_amt" attrs="{'invisible': [('third_party', '=', False)]}"/>
+                    <field name="third_party" attrs="{'readonly': [('payment_state','not in',['not_paid', 'partial'])]}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_order_form_inherit01" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_invoice_id" position="before">
+                    <field name="third_party" attrs="{'readonly': [('state', 'in', ('sale'))]}" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

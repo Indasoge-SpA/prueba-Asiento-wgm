@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+        
+        <!-- Origin Form -->
+        <record model="ir.ui.view" id="ind_origin_view_form">
+            <field name="name">origin.form</field>
+            <field name="model">trade_management.shipment.origin</field>
+            <field name="arch" type="xml">
+                <form string="Shipments Origin Form">
+                    <sheet>
+                        <h1><field name="name"/></h1>
+                        <group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Shipments Origins List -->
+        <record model="ir.ui.view" id="ind_origin_view_list">
+            <field name="name">origin.list</field>
+            <field name="model">trade_management.shipment.origin</field>
+            <field name="arch" type="xml">
+                <tree string="Shipment Origins List">
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Naves Search -->
+        <record model="ir.ui.view" id="ind_origin_view_search">
+            <field name="name">origin.search</field>
+            <field name="model">trade_management.shipment.origin</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+           
+  </data>
+</odoo>

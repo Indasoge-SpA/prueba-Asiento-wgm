@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_advance_payment_inv_inh11" model="ir.ui.view">
+            <field name="name">Invoice Orders</field>
+            <field name="model">sale.advance.payment.inv</field>
+            <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/group" position="inside">
+                    <label for="bk_amt" attrs="{'invisible': [('advance_payment_method', 'not in', ('bank_amount'))]}"/>
+                    <div attrs="{'invisible': [('advance_payment_method', 'not in', ('bank_amount'))], 'required': [('advance_payment_method', '=', 'bank_amount')]}">
+                        <field name="bk_amt" attrs="{'required': [('advance_payment_method', '=', 'bank_amount')], 'invisible': [('advance_payment_method', '!=', 'bank_amount')]}" class="oe_inline"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        
+        <record id="account_payment_register_form_inh01" model="ir.ui.view">
+            <field name="name">account.payment.register.form</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                <field name="payment_method_id" position="after">
+                    <field name="third_party_check" attrs="{'invisible':[('third_party_wiz','=', False)]}"/>
+                    <field name="third_party_wiz" attrs="{'invisible':[('third_party_check','=', False)]}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

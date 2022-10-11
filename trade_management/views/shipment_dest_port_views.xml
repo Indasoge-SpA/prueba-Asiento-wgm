@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+        
+        <!-- Destinatio Port Form -->
+        <record model="ir.ui.view" id="ind_dest_port_view_form">
+            <field name="name">destination_port.form</field>
+            <field name="model">trade_management.port.destination</field>
+            <field name="arch" type="xml">
+                <form string="Destination Port Form">
+                    <sheet>
+                        <h1><field name="name"/></h1>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Destination Ports  List -->
+        <record model="ir.ui.view" id="ind_dest_port_view_list">
+            <field name="name">destination_port.list</field>
+            <field name="model">trade_management.port.destination</field>
+            <field name="arch" type="xml">
+                <tree string="Destinations Ports">
+                    <field name="name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Destination Port Search -->
+        <record model="ir.ui.view" id="spaceship_view_search">
+            <field name="name">destination_port.search</field>
+            <field name="model">trade_management.port.destination</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+           
+  </data>
+</odoo>

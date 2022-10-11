@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_attachment_report_form_avp" model="ir.ui.view">
+        <field name="name">view.attachment.report.form</field>
+        <field name="model">attachment.report</field>
+        <field name="arch" type="xml">
+            <form string="Attachment">
+                <group>
+                    <field name="attachment" readonly="1" filename="filename" />
+                    <field name="filename" invisible="1"/>
+                </group>
+                <footer>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

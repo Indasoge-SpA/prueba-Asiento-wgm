@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="l10n_cl_hr_account_analytic" inherit_id="hr_payroll.report_payslip">
+		<xpath expr="/t/t/t/t/div/table[3]/thead/tr/th[3]" position="after">
+			<td>
+				<th width="25%"><strong class="float-right">Centro Costo</strong></th>
+			</td>
+		</xpath>
+		<xpath expr="/t/t/t/t/div/table[3]/tbody/tr/td[3]" position="after">
+			<td>
+				<span class="float-right" t-esc="o.contract_id.analytic_account_id.code or '001'"/>
+			</td>
+		</xpath>
+	</template>
+</odoo>

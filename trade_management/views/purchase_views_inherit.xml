@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+
+    <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="purchase_order_form_view_inherit">
+      <field name="name">purchase.order.form.inherit</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_form"/>
+      <field name="arch" type="xml">
+        <field name="date_order" position="before">
+          <field name="transport_type"/>
+          <field name="shipment_id"/>
+          <field name="container_id"/>
+        </field>
+        <xpath expr="//sheet//notebook" position="inside">
+          <page string="Notes" name="purchase_notes">
+            <field name="notes"/>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="purchase_order_tree_view_inherit">
+      <field name="name">purchase.order.tree.inherit</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+      <field name="arch" type="xml">
+        <field name="name" position="after">
+          <field name="transport_type"/>
+          <field name="shipment_id"/>
+          <field name="container_id"/>
+        </field>
+      </field>
+    </record>
+
+    <!-- Filter inherit-->
+    <record id="view_purchase_order_view_filter_inherit" model="ir.ui.view">
+      <field name="name">purchase.order.view.filter.inherit</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+      <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">            
+          <filter string="Air" name="air" domain="[('transport_type','=','air')]"/>
+          <filter string="Maritime" name="maritime" domain="[('transport_type','=','maritime')]"/>
+          <filter string="Land" name="land" domain="[('transport_type','=','land')]"/>
+        </xpath>
+        <xpath expr="//group" position="inside">
+          <filter string="Transport type" name="transport_type" domain="[]" context="{'group_by': 'transport_type'}"/>
+          <filter string="Shipment" name="shipment_id" domain="[]" context="{'group_by':'shipment_id'}"/>
+          <filter string="Container" name="container_id" domain="[]" context="{'group_by':'container_id'}"/>
+        </xpath> 
+      </field>
+    </record>
+
+
+    <record id="purchase_order_view_search_inherit" model="ir.ui.view">
+      <field name="name">purchase.order.select.inherit</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+      <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">
+          <field name="transport_type"/>
+          <field name="shipment_id"/>
+          <field name="container_id"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

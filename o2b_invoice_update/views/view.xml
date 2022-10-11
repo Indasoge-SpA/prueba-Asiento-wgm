@@ -1,0 +1,172 @@
+<odoo>
+  <record model="ir.ui.view" id="res_partner_new_field">
+    <field name="name">res.partner.new</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='category_id']" position="after">
+            <field name="employee" readonly="1"/>
+        </xpath> 
+      </field>
+    </record>
+  <record id="action_update_employee" model="ir.actions.server">
+        <field name="name">Update Employee</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_update_employee()
+        </field>
+    </record>
+    <record id="view_users" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="o2b_mobile_app.view_users_form_simple_modif" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='technician']" position="replace">
+                <field name="technician" domain="[('is_technician', '=', True),('employee','!=',False)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record model="ir.ui.view" id="hr_employee_add_field">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="techpartner_id"/>
+            </xpath> 
+          </field>
+    </record> -->
+
+    <record model="ir.ui.view" id="res_partner_new_field">
+        <field name="name">res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='phone']" position="before">
+                <field name="branch_ln"/>
+            </xpath> 
+        </field>
+    </record>
+    <record id="action_account_report_horoscope" model="ir.actions.client">
+        <field name="name">Horóscopo Ventas</field>
+        <field name="tag">account_report</field>
+        <field name="context" eval="{'model': 'horoscope.report'}" />
+    </record>
+
+    <template id="account_reports.main_template_with_filter_input_accounts" inherit_id="account_reports.main_template"  primary="True">
+        <xpath expr="//div[hasclass('print_only')]" position="after">
+
+            <t t-if="report.get('name') not in ['Cheques por Cobrar', 'Cheques Protestados']" >
+                <div class="o_reports_filter_input_wrapper no_print">
+                    <span class="searchIcon"><i class="fa fa-search" role="img" aria-label="Search" title="Search"></i></span>
+                    <input class="o_account_reports_filter_input" type="text" placeholder="Search account" />
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="account_reports.search_template">
+        <t t-if="context.get('model') not in ['account.check.receivable.report', 'account.check.protested.report']">
+            <div class="btn-group o_dropdown o_account_reports_filter_date" t-if="options.get('date') != None">
+                <t t-call="account_reports.search_template_date_filter"/>
+            </div>
+        </t>
+        <div class="btn-group o_dropdown o_account_reports_filter_date_cmp" t-if="options.get('comparison') != None">
+            <t t-call="account_reports.search_template_comparison"/>
+        </div>
+        <div class="btn-group o_dropdown o_account_reports_filter_journals" t-if="options.get('journals') != None">
+            <t t-call="account_reports.search_template_journals"/>
+        </div>
+        <div class="btn-group o_dropdown o_account_reports_filter_account_type" t-if="options.get('account_type') != None">
+            <t t-call="account_reports.search_template_account_type"/>
+        </div>
+        <div class="btn-group o_dropdown o_account_reports_filter_analytic" t-if="options.get('analytic') != None or options.get('analytic_tags') != None">
+            <t t-call="account_reports.search_template_analytic"/>
+        </div>
+        <div class="btn-group o_dropdown o_account_reports_filter_ir_filters" t-if="options.get('ir_filters') != None">
+            <t t-call="account_reports.search_template_ir_filters"/>
+        </div>
+        <div class="btn-group o_dropdown o_account_reports_filter_groupby_fields" t-if="options.get('groupby_fields')">
+            <t t-call="account_reports.search_template_groupby_fields"/>
+        </div>
+        <div class="btn-group o_dropdown o_account_reports_filter_partner" t-if="options.get('partner')">
+            <t t-call="account_reports.search_template_partner"/>
+        </div>
+        <div class="btn-group o_dropdown o_account_reports_filter_currency" t-if="options.get('currency_rates')">
+            <t t-call="account_reports.search_template_currency"/>
+        </div>
+        <div id="extra_options_dropdown" class="btn-group o_dropdown o_account_reports_filter_bool" t-if="options.get('cash_basis') != None or options.get('all_entries') != None or options.get('unfold_all') != None">
+            <t t-call="account_reports.search_template_extra_options"/>
+        </div>
+    </template>
+
+    <template id="account_reports.search_template_analytic">
+        <t t-if="context.get('model') not in ['account.check.receivable.report', 'account.check.protested.report']">
+            <button t-if="options.get('analytic')" type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle account_analytic_filter" data-toggle="dropdown">
+                <span class="fa fa-folder-open"/> Analytic
+            </button>
+            <ul class="dropdown-menu o_filter_menu" role="menu">
+                <li class="o_account_report_search js_account_analytic_m2m"/>
+            </ul>
+        </t>
+    </template>
+
+    <template id="account_reports.search_template_extra_options">
+        <button type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+            <span class="fa fa-filter"/> Options:
+            <t t-if="context.get('model') not in ['account.check.receivable.report', 'account.check.protested.report']">
+                <t t-if="options.get('all_entries') != None" groups="account.group_account_readonly">
+                    <t t-if="options['all_entries']">With Draft Entries</t>
+                    <t t-if="not options['all_entries']">Posted Entries Only</t>
+                </t>
+                <t t-if="options.get('unreconciled') != None">
+                    <t t-if="options.get('all_entries') != None">,</t>
+                    <t t-if="options['unreconciled']">Only Show Unreconciled Entries</t>
+                </t>
+            </t>
+        </button>
+        <div class="dropdown-menu o_filter_menu" role="menu">
+            <t t-if="context.get('model') not in ['account.check.receivable.report', 'account.check.protested.report']">
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter" t-if="options.get('all_entries') != None" title="Include unposted entries" data-filter="all_entries" groups="account.group_account_readonly">Include Unposted Entries</a>
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter" t-if="options.get('hierarchy') != None" title="Hierarchy" data-filter="hierarchy">Hierarchy and Subtotals</a>
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter" t-if="options.get('unreconciled') != None" title="Unreconciled" data-filter="unreconciled">Only Show Unreconciled Entries</a>
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter" t-if="options.get('unfold_all') != None" title="Unfold" data-filter="unfold_all">Unfold All</a>
+            </t>
+            <t t-else="">
+                <a role="menuitem" class="dropdown-item js_account_report_bool_filter" t-if="options.get('unfold_all') != None" title="Unfold" data-filter="unfold_all">Unfold All</a>
+            </t>
+        </div>
+    </template>
+
+    <menuitem id="menu_action_account_report_horoscope" name="Horóscopo Ventas" action="action_account_report_horoscope" parent="account_reports.account_reports_partners_reports_menu"/>
+
+
+    <record id="action_account_report_checks_receivable" model="ir.actions.client">
+        <field name="name">Cheques por Cobrar</field>
+        <field name="tag">account_report</field>
+        <field name="context" eval="{'model': 'account.check.receivable.report'}" />
+    </record>
+
+    <record id="action_account_report_horoscope_vendors" model="ir.actions.client">
+        <field name="name">Horóscopo Vendor</field>
+        <field name="tag">account_report</field>
+        <field name="context" eval="{'model': 'horoscope.report.vendors'}" />
+    </record>
+
+    <menuitem id="menu_action_account_report_horoscope_vendors" name="Horóscopo Vendor" action="action_account_report_horoscope_vendors" parent="account_reports.account_reports_partners_reports_menu"/>
+
+    <menuitem id="menu_action_account_report_checks_receivable" name="Cheques por Cobrar" action="action_account_report_checks_receivable" parent="account_reports.account_reports_partners_reports_menu" groups="account.group_account_readonly"/>
+
+    <record id="action_account_report_checks_protested_new" model="ir.actions.client">
+        <field name="name">Cheques Protestados</field>
+        <field name="tag">account_report</field>
+        <field name="context" eval="{'model': 'account.check.protested.report'}" />
+    </record>
+
+    <menuitem id="menu_action_account_report_checks_protested" name="Cheques Protestados" action="action_account_report_checks_protested_new" parent="account_reports.account_reports_partners_reports_menu" groups="account.group_account_readonly"/>
+
+</odoo>
+

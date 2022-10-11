@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>						
+<odoo>						
+    <data noupdate="1">						
+
+
+
+        <!-- Indicadores Inputs 
+
+        <record id="hr_indicadores_enero_2021" model="hr.indicadores">
+            <field name="month">1</field>
+            <field name="year">2021</field>
+            <field name="name">Enero 2021</field>
+            <field name="uf">29123.74</field>
+            <field name="utm">50978</field>
+            <field name="uta">611736</field>
+            <field name="asignacion_familiar_primer">342346</field>
+            <field name="asignacion_familiar_segundo">500033</field>
+            <field name="asignacion_familiar_tercer">779882</field>
+            <field name="caja_compensacion">0.60</field>
+            <field name="asignacion_familiar_monto_a">13401</field>
+            <field name="asignacion_familiar_monto_b">8224</field>
+            <field name="asignacion_familiar_monto_c">2599</field>
+            <field name="fonasa">6.40</field>
+            <field name="mutual_seguridad">0.93</field>
+            <field name="isl">0.93</field>
+            <field name="pensiones_ips">18.84</field>
+            <field name="sueldo_minimo">326500</field>
+            <field name="sueldo_minimo_otro">210458</field>
+            <field name="tope_imponible_afp">81.7</field>
+            <field name="tope_imponible_ips">60</field>
+            <field name="tope_imponible_salud">7</field>
+            <field name="tope_imponible_seguro_cesantia">122.7</field>
+            <field name="deposito_convenido">900</field>
+            <field name="contrato_plazo_fijo_empleador">3</field>
+            <field name="contrato_plazo_fijo_trabajador">0</field>
+            <field name="contrato_plazo_indefinido_empleador">2.4</field>
+            <field name="contrato_plazo_indefinido_trabajador">0.6</field>
+            <field name="contrato_plazo_indefinido_empleador_otro">0.8</field>
+            <field name="tasa_afp_capital">11.44</field>
+            <field name="tasa_afp_cuprum">11.44</field>
+            <field name="tasa_afp_habitat">11.27</field>
+            <field name="tasa_afp_planvital">11.16</field>
+            <field name="tasa_afp_provida">11.45</field>
+            <field name="tasa_afp_modelo">10.77</field>
+            <field name="tasa_afp_uno">10.69</field>
+            <field name="tasa_sis_cuprum">2.3</field>
+            <field name="tasa_sis_capital">2.3</field>
+            <field name="tasa_sis_provida">2.3</field>
+            <field name="tasa_sis_planvital">2.3</field>
+            <field name="tasa_sis_habitat">2.3</field>
+            <field name="tasa_sis_modelo">2.3</field>
+            <field name="tasa_sis_uno">2.3</field>
+            <field name="tasa_independiente_capital">13.74</field>
+            <field name="tasa_independiente_cuprum">13,74</field>
+            <field name="tasa_independiente_habitat">13.57</field>
+            <field name="tasa_independiente_planvital">13.46</field>
+            <field name="tasa_independiente_provida">13.75</field>
+            <field name="tasa_independiente_modelo">13.07</field>
+            <field name="tasa_independiente_uno">12.99</field>
+            <field name="tope_anual_apv">600</field>
+            <field name="tope_mensual_apv">50</field>
+            <field name="ipc">0.5</field>
+        </record>
+-->
+    </data>                               
+</odoo>     

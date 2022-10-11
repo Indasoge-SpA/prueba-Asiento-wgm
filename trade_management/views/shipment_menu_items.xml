@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+      
+            <!-- Action that opens the view -->
+        <record id='ind_shipment_action' model='ir.actions.act_window'>
+            <field name="name">Shipments Management</field>
+            <field name="res_model">trade_management.shipment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+      
+        <record id='ind_container_action' model='ir.actions.act_window'>
+            <field name="name">Containers Management</field>
+            <field name="res_model">trade_management.container</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id='ind_shipment_origin_action' model='ir.actions.act_window'>
+            <field name="name">Shipments Origins Management</field>
+            <field name="res_model">trade_management.shipment.origin</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id='ind_destination_port_action' model='ir.actions.act_window'>
+            <field name="name">Shipment Destination Ports Management</field>
+            <field name="res_model">trade_management.port.destination</field>
+            <field name="view_mode">tree,form</field>
+        </record>                
+        
+        <!-- Menu items to make the functionalty visible to users -->
+        <!-- Hint: al poner el web_icon en el menu base, hay que poner el nombre del MODULO -->
+        <menuitem name="Shipments Management" id="ind_shipments_base_menu"
+                  sequence="1" 
+                  web_icon="trade_management,static/description/icon.png"/>
+        <menuitem name="Shipments" id="ind_shipments_sub_menu" 
+                  parent="ind_shipments_base_menu" sequence="2"
+                  action ="ind_shipment_action"/>
+        <menuitem name="Origins" id="ind_shipments_origins_menu" 
+                  parent="ind_shipments_base_menu" sequence="3" 
+                  action="ind_shipment_origin_action"/>
+        <menuitem name="Destinations" id="ind_destinations_ports_menu"
+                  parent="ind_shipments_base_menu" sequence="4"
+                  action="ind_destination_port_action"/>
+        <menuitem name="Containers" id="ind_containers_ports_menu"
+                  parent="ind_shipments_base_menu" sequence="4"
+                  action="ind_container_action"/>
+  </data>
+</odoo>
